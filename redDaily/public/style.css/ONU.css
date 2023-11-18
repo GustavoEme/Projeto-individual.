@@ -1,0 +1,51 @@
+*{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin: 0;
+    
+}
+.pai{
+    display: flex;
+    flex-direction: column;
+}
+.Direitos{
+    display: flex;
+    width: 100%;
+    height: 300px;
+    flex-direction: row;
+    justify-content: center;
+
+}
+.img-mulheres{
+    width: 250px;
+    height: 300px;
+    display: flex;
+
+}
+.text{
+    
+    height: 200px;
+    justify-content: right;
+    text-align: center;
+    display: flex;
+    color: chartreuse;
+    align-items: center;
+}
+
+.Industria{
+    display: flex;
+    width: 100%;
+    background-image: url("assets/Industrializacao.webp");
+    background-size: cover;
+    height: 400px;
+    align-items: center;
+    justify-content: center;
+}
+.text-industria{
+    display: flex;
+    justify-content: center;
+    width: 400px;
+    text-align: center;
+    color: chartreuse;
+    padding: 15px;
+    align-items: start;
+}
