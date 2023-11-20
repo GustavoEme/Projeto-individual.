@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
+    <link rel="stylesheet" href="quiz.css">
 </head>
 <body>
+    <div class="Principal">
     <div id="quiz-container">
-        <h1>Quiz Red Dead Redemption 2</h1>
+        <img src="../assets/TituloQuiz.png">
         <div id="question-container"></div>
         <div id="options-container"></div>
-        <button id="submit-btn">Enviar</button>
+        <button id="Enviar">Enviar</button>
     </div>
+</div>
     <script>
+        var Lista_pontos=[]
     const dadosQuiz = [
     {
         pergunta: "Quem é o protagonista de Red Dead Redemption 2?",
@@ -33,7 +37,7 @@
         opcoes: ["Jhon", "Bill", "Hosea", "Micah"],
         respostaCorreta: "Micah"
     },
-    {   pergunta: "Qual o nome do cozinheiro da guangue?",
+    {   pergunta: "Arthur Morgan sofre de qual doença?",
         opcoes: ["Câncer", "Tuberculose", "Depressão", "Lumbago"],
         respostaCorreta: "Tuberculose"
     },
@@ -61,7 +65,7 @@
 
 const containerPergunta = document.getElementById("question-container");
 const containerOpcoes = document.getElementById("options-container");
-const botaoEnviar = document.getElementById("submit-btn");
+const botaoEnviar = document.getElementById("Enviar");
 
 let perguntaAtual = 0;
 let pontuacao = 0;
@@ -80,6 +84,7 @@ function carregarPergunta() {
 }
 
 function verificarResposta() {
+    
     const opcaoSelecionada = document.querySelector('input[name="pergunta"]:checked');
     
     if (!opcaoSelecionada) {
@@ -100,7 +105,8 @@ function verificarResposta() {
     }
         else  {
         alert(`Quiz concluído! Sua pontuação é ${pontuacao} de ${dadosQuiz.length}.`);
-        // Pode adicionar mais ações aqui após o término do quiz.
+        
+        Lista_pontos.push(pontuacao);
     }
 }
 
