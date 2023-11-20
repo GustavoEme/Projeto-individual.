@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+</head>
+<body>
+    <div id="quiz-container">
+        <h1>Quiz Red Dead Redemption 2</h1>
+        <div id="question-container"></div>
+        <div id="options-container"></div>
+        <button id="submit-btn">Enviar</button>
+    </div>
+    <script>
+    const dadosQuiz = [
+    {
+        pergunta: "Quem é o protagonista de Red Dead Redemption 2?",
+        opcoes: ["John Marston", "Arthur Morgan", "Dutch van der Linde", "Micah Bell"],
+        respostaCorreta: "Arthur Morgan"
+    },
+    {
+        pergunta: "Qual é o nome do acampamento principal onde os Van der Linde Gang se estabelecem?",
+        opcoes: ["Strawberry", "Saint Denis", "Horseshoe Overlook", "Rhodes"],
+        respostaCorreta: "Horseshoe Overlook"
+    },
+    {
+        pergunta: "Qual é o nome do cavalo inicial de Arthur Morgan?",
+        opcoes: ["Silver", "Buell", "Roach", "Boadicea"],
+        respostaCorreta: "Boadicea"
+    },
+    {   pergunta: "Qual é nome o vilão do jogo?",
+        opcoes: ["Jhon", "Bill", "Hosea", "Micah"],
+        respostaCorreta: "Micah"
+    },
+    {   pergunta: "Qual o nome do cozinheiro da guangue?",
+        opcoes: ["Câncer", "Tuberculose", "Depressão", "Lumbago"],
+        respostaCorreta: "Tuberculose"
+    },
+    {   pergunta: "Qual o nome do cozinheiro(a) da guangue?",
+        opcoes: ["Charles", "Pearson", "Jhon Marston", "Sadie"],
+        respostaCorreta: "Pearson"
+    },
+    {   pergunta: "Quem tem o trabalho de agir como agiota dentro da guangue?",
+        opcoes: ["Leopold Strauss", "Charles Smith", "Tio", "Pearson"],
+        respostaCorreta: "Leopold Strauss"
+    },
+    {   pergunta: "Qual o nome da ilha que alguns dos membros acidentalmente visitam?",
+        opcoes: ["Silver Stone", "Sentinela", "Guarma", "Martha"],
+        respostaCorreta: "Guarma"
+    },
+    {   pergunta: "Qual o nome do filho de Jhon Marston?",
+        opcoes: ["Jack", "Shaun", "Roach", "Bylli"],
+        respostaCorreta: "Jack"
+    },
+    {   pergunta: "Por qual motivo o Jhon Marston tem cicatrizes no rosto?",
+        opcoes: ["Ataque de Puma", "Ataque de Javali", "Ataque de Lobos", "Ataque de Urso"],
+        respostaCorreta: "Ataque de Urso"
+    }
+];
+
+const containerPergunta = document.getElementById("question-container");
+const containerOpcoes = document.getElementById("options-container");
+const botaoEnviar = document.getElementById("submit-btn");
+
+let perguntaAtual = 0;
+let pontuacao = 0;
+
+function carregarPergunta() {
+    const perguntaAtualQuiz = dadosQuiz[perguntaAtual];
+
+    containerPergunta.innerHTML = `<p>${perguntaAtualQuiz.pergunta}</p>`;
+
+    containerOpcoes.innerHTML = "";
+    for (let indice = 0; indice < perguntaAtualQuiz.opcoes.length; indice++) {
+        const idOpcao = `opcao${indice + 1}`;
+        containerOpcoes.innerHTML += `<input type="radio" name="pergunta" value="${perguntaAtualQuiz.opcoes[indice]}" id="${idOpcao}">
+                                        <label for="${idOpcao}">${perguntaAtualQuiz.opcoes[indice]}</label><br>`;
+    }
+}
+
+function verificarResposta() {
+    const opcaoSelecionada = document.querySelector('input[name="pergunta"]:checked');
+    
+    if (!opcaoSelecionada) {
+        alert("Por favor, selecione uma opção!");
+        return;
+    }
+
+    const respostaUsuario = opcaoSelecionada.value;
+    if (respostaUsuario === dadosQuiz[perguntaAtual].respostaCorreta) {
+        pontuacao++;
+    }
+
+    perguntaAtual++;
+
+    if (perguntaAtual < dadosQuiz.length) {
+        carregarPergunta();
+        
+    }
+        else  {
+        alert(`Quiz concluído! Sua pontuação é ${pontuacao} de ${dadosQuiz.length}.`);
+        // Pode adicionar mais ações aqui após o término do quiz.
+    }
+}
+
+carregarPergunta();
+
+botaoEnviar.addEventListener("click", verificarResposta);
+</script>
+</body>
+</html>
