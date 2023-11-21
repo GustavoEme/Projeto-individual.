@@ -1,0 +1,46 @@
+*{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+}
+.container{
+    background-image: url(../assets/BackCadastro.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    display: flex;
+    justify-content: center;
+    width: 350px;
+    height: 400px;
+    background-color: rgba(0, 255, 255, 0.45);
+    border-radius: 15px;
+    align-items: center;
+    text-align: center; 
+}
+.Campo{
+    color: rgb(187, 218, 32);
+    text-shadow: 0px 0px 4px black;
+}
+.card h1{
+    color: red;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 0px 0px 4px black;
+}
+
+.Campo input{
+    height: 20px;
+    border-radius: 5px;
+    margin-top: 7px;
+    text-align: center;
+}
+#Btn{
+    height: 40px;
+    width: 150px;
+    border-radius: 15px;
+    margin-top: 15px;
+    font-size: 20px;
+}
