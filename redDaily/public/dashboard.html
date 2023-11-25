@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css/dashboard.css">
+</head>
+<body>
+<div class="Container-geral">
+
+  <div class="header">
+    <div class="img-footer">
+        <img src="assets/Logo.png">
+    </div>
+    <div class="opcoes">
+        <ul>Tópicos ONU</ul>
+       <a href="cadastro.html"> <ul>Cadastro</ul></a>
+        <a href="login.html"><ul>Login</ul></a>
+        <ul>Sobre mim</ul>
+    </div>
+</div>
+<div class="dash">
+
+    <div>
+        <canvas id="grafico"></canvas>
+
+    </div>
+
+  </div>
+
+
+
+
+</div>
+
+    
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('grafico');
+  
+    const graficoPontuacao = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        datasets: [{
+          label: '# of Votes',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    fetch('/dashboard/listar', {
+      method: 'get',
+      headers: {
+        "Content-Type": "application/json",
+      }
+    }).then(response => {
+      response.json().then(json => {
+        console.log(json)
+
+        for(var increment = 0; increment < json.length; increment++) {
+          graficoPontuacao.data.datasets[0].data.push(json[increment].pontuacao)
+          graficoPontuacao.data.labels.push(json[increment].pontuacao)
+        }
+
+        graficoPontuacao.update()
+      })
+    })
+  </script>
