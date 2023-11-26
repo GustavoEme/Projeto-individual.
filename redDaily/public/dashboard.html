@@ -22,14 +22,22 @@
 </div>
 <div class="dash">
 
-    <div>
+    <div class="grafico1">
         <canvas id="grafico"></canvas>
 
     </div>
-
+    <div class="grafico02">
+      <canvas id="grafico2"></canvas>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </div>
+    
+   
   </div>
-
-
+  <div class="grafico03">
+    <canvas id="Grafico3"></canvas>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
 </div>
@@ -75,4 +83,58 @@
         graficoPontuacao.update()
       })
     })
+
+
+
+
+
+
+    const gtx = document.getElementById('grafico2');
+
+  new Chart(gtx, {
+    type: 'line',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+
+
+
+
+
+  const area = document.getElementById('Grafico3');
+
+new Chart(area, {
+  type: 'bar',
+  data: {
+    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    datasets: [{
+      label: '# of Votes',
+      data: [12, 19, 3, 5, 2, 3],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
+
   </script>
+ 

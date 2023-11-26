@@ -30,6 +30,27 @@
     color:greenyellow;
     margin-right: 20px;
 }
+.grafico1{
+    display: flex;
+    width: 550px;
+    height: 350px;
+}
+.grafico02{
+    display: flex;
+    width: 500px;
+    height: 350px;
+}
+.Grafico03{
+    display: flex;
+    width: 500px;
+    height: 400px;
+}
+
+.dash{
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+}
 
 
 
