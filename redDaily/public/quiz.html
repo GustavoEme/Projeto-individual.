@@ -107,12 +107,117 @@ function verificarResposta() {
     else if(pontuacao>=8 && pontuacao<=10){
          Ranking = "Horado"
         alert(` parabens! seu Ranking é:${Ranking}`)
+        setTimeout(function () {
+                        window.location.href="dashboard.html"
+                    }, 3000); // apenas para exibir o loading
+
+        fetch("/quiz/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          pontuacaoServer: pontuacao,
+          RankingServer: Ranking
+        }),
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+  
+          if (resposta.ok) {
+            
+  
+            alert("Quiz realizado com sucesso! Redirecionando para tela de Estatisticas")
+  
+           
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+         
+        });
+  
+      return false;
     }else if(pontuacao>=5 && pontuacao<=7){
          Ranking = "Comum"
         alert(`seu Ranking ficou como:${Ranking}`)
+        setTimeout(function () {
+                        window.location.href="dashboard.html"
+                    }, 3000); // apenas para exibir o loading
+
+        fetch("/quiz/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          pontuacaoServer: pontuacao,
+          RankingServer: Ranking
+        }),
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+  
+          if (resposta.ok) {
+            
+  
+            alert("Quiz realizado com sucesso! Redirecionando para tela de Estatisticas")
+  
+           
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+         
+        });
+  
+      return false;
     }else if(pontuacao<=4){
          Ranking = "Sem valor"
          alert(`seu Ranking ficou como:${Ranking}`)
+         setTimeout(function () {
+                        window.location.href="dashboard.html"
+                    }, 3000); // apenas para exibir o loading
+
+        fetch("/quiz/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          pontuacaoServer: pontuacao,
+          RankingServer: Ranking
+        }),
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+  
+          if (resposta.ok) {
+            
+  
+            alert("Quiz realizado com sucesso! Redirecionando para tela de Estatisticas")
+  
+           
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+         
+        });
+  
+      return false;
     }
         else  {
         alert(`Quiz concluído! Sua pontuação é ${pontuacao} de ${dadosQuiz.length}.`);
