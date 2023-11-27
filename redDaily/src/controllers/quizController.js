@@ -2,10 +2,11 @@ var quizModel = require("../models/quizModel");
 
 function cadastrar(req, res) {
     var pontuacao = req.body.pontuacaoServer;
+    var Ranking =  req.body.RankingServer;
     
 
     if (pontuacao == undefined) {
-        res.status(400).send("Seu nome está undefined!");
+        res.status(400).send("Sua pontuacao está undefined!");
     }
 
     quizModel.cadastrar(pontuacao).then(function(resposta){

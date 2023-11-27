@@ -9,13 +9,14 @@
 <body>
     <div class="Principal">
     <div id="quiz-container">
-        <img src="../assets/TituloQuiz.png">
+        <img src="./assets/TituloQuiz.png">
         <div id="question-container"></div>
         <div id="options-container"></div>
         <button id="Enviar">Enviar</button>
     </div>
 </div>
     <script>
+        var Ranking = "Ranking"
         var Lista_pontos=[]
     const dadosQuiz = [
     {
@@ -103,6 +104,16 @@ function verificarResposta() {
         carregarPergunta();
         
     }
+    else if(pontuacao>=8 && pontuacao<=10){
+         Ranking = "Horado"
+        alert(` parabens! seu Ranking é:${Ranking}`)
+    }else if(pontuacao>=5 && pontuacao<=7){
+         Ranking = "Comum"
+        alert(`seu Ranking ficou como:${Ranking}`)
+    }else if(pontuacao<=4){
+         Ranking = "Sem valor"
+         alert(`seu Ranking ficou como:${Ranking}`)
+    }
         else  {
         alert(`Quiz concluído! Sua pontuação é ${pontuacao} de ${dadosQuiz.length}.`);
         
@@ -121,6 +132,7 @@ function verificarResposta() {
           // crie um atributo que recebe o valor recuperado aqui
           // Agora vá para o arquivo routes/usuario.js
           pontuacaoServer: pontuacao,
+          RankingServer: Ranking
         }),
       })
         .then(function (resposta) {
